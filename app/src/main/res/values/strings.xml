@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GADE App</string>
+    <string name="title_settings">Parametres</string>
+    <string name="title_devices">Appareils</string>
+</resources>
