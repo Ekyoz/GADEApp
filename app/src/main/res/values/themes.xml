@@ -3,15 +3,18 @@
     <style name="Theme.GADEApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/indigo_500</item>
-        <item name="colorPrimaryVariant">@color/indigo_800</item>
+        <item name="colorPrimaryVariant">@color/indigo_900</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/blue_200</item>
-        <item name="colorSecondaryVariant">@color/blue_300</item>
+        <item name="colorSecondary">@color/gray_400</item>
+        <item name="colorSecondaryVariant">@color/gray_300</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorOnPrimary</item>
         <item name="actionBarStyle">?attr/colorOnPrimary</item>
         <!-- Customize your theme here. -->
+        <item name="colorSurface">@color/transparent</item>
+        <item name="background">@color/gray_300</item>
     </style>
+
 </resources>

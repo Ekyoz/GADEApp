@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/settings"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:title="@string/title_devices"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/switch_action_bar"
+        android:title="Switch"
+        app:actionLayout="@layout/use_switch"
+        app:showAsAction="always" />
 
 
 </menu>
