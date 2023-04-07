@@ -1,0 +1,125 @@
+{
+    "server": {
+        "host": "localhost",
+        "port": 3000,
+        "security": {
+            "username": "admin",
+            "password": "password123"
+        }
+    },
+    "lights": {
+        "1": {
+            "id": "L1",
+            "name": "Salon",
+            "state": false,
+            "brightness": 100,
+            "automation": {
+                "presence": true,
+                "luminosity": false,
+                "time": false
+            }
+        },
+        "2": {
+            "id": "L2",
+            "name": "Cuisine",
+            "state": false,
+            "brightness": 100,
+            "automation": {
+                "presence": true,
+                "luminosity": true,
+                "time": false
+            }
+        }
+    },
+    "sensors": {
+        "luminosity": {
+            "name": "Capteur de luminosité",
+            "category": [
+                "sensors",
+                "environment"
+            ],
+            "sensors": [
+                {
+                    "id": "LUM1",
+                    "ip": "xxx.xxx.xxx.xxx",
+                    "port": 0,
+                    "value": 500
+                },
+                {
+                    "id": "LUM2",
+                    "ip": "yyy.yyy.yyy.yyy",
+                    "port": 0,
+                    "value": 400
+                }
+            ]
+        },
+        "presence": {
+            "name": "Capteur de présence",
+            "category": [
+                "sensors",
+                "security"
+            ],
+            "sensors": [
+                {
+                    "id": "PRE1",
+                    "ip": "zzz.zzz.zzz.zzz",
+                    "port": 0,
+                    "value": false
+                }
+            ]
+        },
+        "power_consumption": {
+            "name": "Capteur de consommation électrique",
+            "category": [
+                "sensors",
+                "energy"
+            ],
+            "sensors": [
+                {
+                    "id": "PWR1",
+                    "ip": "aaa.aaa.aaa.aaa",
+                    "port": 0,
+                    "value": 0
+                }
+            ]
+        }
+    },
+    "control_panel": {
+        "name": "Panneau de contrôle",
+        "buttons": [
+            {
+                "name": "Tout allumer",
+                "action": "lights_on"
+            },
+            {
+                "name": "Tout éteindre",
+                "action": "lights_off"
+            }
+        ]
+    },
+    "automation": {
+        "presence": {
+            "name": "Automatisation de présence",
+            "state": true,
+            "action": "lights_on",
+            "threshold": 1
+        },
+        "luminosity": {
+            "name": "Automatisation de luminosité",
+            "state": false,
+            "action": "lights_on",
+            "threshold": 500
+        },
+        "time": {
+            "name": "Automatisation de temps",
+            "state": false,
+            "action": "lights_off",
+            "time_on": "18:00",
+            "time_off": "7:00"
+        }
+    },
+    "settings": {
+        "language": "fr",
+        "timezone": "Europe/Paris"
+    }
+}
