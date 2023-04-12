@@ -5,8 +5,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
 
-const data = require("./SSL/users.json");
-const users = data.server.users;
+const data = require("./data.json");
+const users = require("./users.json").users;
 const host = data.server.host;
 const port = data.server.port;
 const secretKey = process.env.SECRET_KEY;

@@ -1,12 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const sqlite3 = require("sqlite3").verbose();
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
 
 const data = require("./data.json");
-const users = data.server.users;
 const host = data.server.host;
 const port = data.server.port;
+const secretKey = process.env.SECRET_KEY;
 
 // Middleware pour parser les données de la requête
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,7 +17,7 @@ app.use(bodyParser.json());
 
 // Middleware pour gérer la session
 app.use(session({
-    secret: "secret-key",
+    secret: secretKey,
     resave: false,
     saveUninitialized: false
 }));
@@ -28,16 +31,20 @@ function requireAuth(req, res, next) {
     }
 }
 
+// Connexion à la base de données
+const db = new sqlite3.Database("users.db");
+
 // Route pour l'authentification
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
-    const user = users.find(u => u.user === username && u.password === password);
-    if (user) {
-        req.session.user = user;
-        res.send(`Logged in successfully with user: ${req.session.user.user}`);
-    } else {
-        res.status(401).send("Invalid username or password");
-    }
+    db.get("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], (err, row) => {
+        if (row) {
+            req.session.user = { id: row.id, username: row.username };
+            res.send(`Logged in successfully with user: ${req.session.user.username}`);
+        } else {
+            res.status(401).send("Invalid username or password");
+        }
+    });
 });
 
 // Route pour récupérer les informations de l'utilisateur courant
@@ -53,7 +60,7 @@ app.get("/logout", (req, res) => {
 
 // Route de test
 app.get("/", requireAuth, (req, res) => {
-    res.send(`Hello! You're connected with: ${req.session.user.user}`);
+    res.send(`Hello! You're connected with: ${req.session.user.username}`);
 });
 
 // Démarrage du serveur
