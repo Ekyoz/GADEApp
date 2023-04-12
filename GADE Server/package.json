@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "nodemon test.js",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,15 @@
   },
   "homepage": "https://github.com/Ekyoz/GADEApp#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
-    "nodemon": "^2.0.22"
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "nodemon": "^2.0.22",
+    "passport": "^0.6.0",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0"
   }
 }
