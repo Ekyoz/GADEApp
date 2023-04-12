@@ -1,17 +1,7 @@
 {
     "server": {
         "host": "192.168.1.28",
-        "port": 3000,
-        "users": [
-            {
-                "user": "admin",
-                "password": "admin"
-            },
-            {
-                "user": "user",
-                "password": "123"
-            }
-        ]
+        "port": 3000
     },
     "lights": {
         "1": {

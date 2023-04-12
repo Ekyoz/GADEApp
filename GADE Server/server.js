@@ -1,12 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
 
-const data = require("./data.json");
+const data = require("./SSL/users.json");
 const users = data.server.users;
 const host = data.server.host;
 const port = data.server.port;
+const secretKey = process.env.SECRET_KEY;
 
 // Middleware pour parser les données de la requête
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,7 +17,7 @@ app.use(bodyParser.json());
 
 // Middleware pour gérer la session
 app.use(session({
-    secret: "secret-key",
+    secret: secretKey,
     resave: false,
     saveUninitialized: false
 }));

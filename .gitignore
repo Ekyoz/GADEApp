@@ -1,2 +1,5 @@
 GADE Server/node_modules
-GADE Server/ssl
+users.json
+key.pem
+cert.pem
+.env
