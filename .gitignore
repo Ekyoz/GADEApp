@@ -1,4 +1,5 @@
-GADE Server/node_modules
+GADE Server HTTP/node_modules
+GADE Server WebSocket/node_modules
 users.json
 key.pem
 cert.pem

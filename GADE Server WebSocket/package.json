@@ -1,0 +1,22 @@
+{
+  "name": "gade-server-websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ekyoz/GADEApp.git"
+  },
+  "author": "Ekyoz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ekyoz/GADEApp/issues"
+  },
+  "homepage": "https://github.com/Ekyoz/GADEApp#readme",
+  "dependencies": {
+    "ws": "^8.13.0"
+  }
+}
