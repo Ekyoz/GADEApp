@@ -63,14 +63,15 @@ function start() {
         ws.on('message', function incoming(message) {
             const data = JSON.parse(message);
             const deviceType = data.device_type;
+            const deviceValue = data.values;
 
             switch (deviceType) {
                 case deviceTypeEnum.LIGHT:
-                    console.log("light");
+                    console.log(deviceValue.status + " " + deviceValue.brightness);
                     break;
 
                 case deviceTypeEnum.LUM_SENSOR:
-                    console.log("lum test");
+                    console.log(deviceValue.lumen);
                     break;
 
                 case deviceTypeEnum.PRE_SENSOR:
@@ -103,5 +104,7 @@ function start() {
         });
     });
 }
+
+start()
 
 module.export = start
